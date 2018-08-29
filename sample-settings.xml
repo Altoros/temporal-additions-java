@@ -1,0 +1,56 @@
+<settings>
+    <profiles>
+        <profile>
+            <id>ossrh</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <gpg.executable>gpg2</gpg.executable>
+                <gpg.passphrase>{Your Pass Phase Here}</gpg.passphrase>
+            </properties>
+        </profile>
+        <profile>
+            <id>nexus</id>
+            <pluginRepositories>
+                <pluginRepository>
+                    <id>central</id>
+                    <name>Central Repository</name>
+                    <url>https://repo.maven.apache.org/maven2</url>
+                </pluginRepository>
+            </pluginRepositories>
+            <repositories>
+                <repository>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                    <id>central</id>
+                    <name>Central Repository</name>
+                    <url>https://repo.maven.apache.org/maven2</url>
+                </repository>
+            </repositories>
+        </profile>
+    </profiles>
+    <activeProfiles>
+        <!--make the profile active all the time -->
+        <activeProfile>nexus</activeProfile>
+    </activeProfiles>
+    <servers>
+        <!-- These for Open Source -->
+        <server>
+            <id>snapshots</id>
+            <username>{username for 'ossrh'}</username>
+            <password>{password for 'ossrh'}</password>
+        </server>
+        <server>
+            <id>releases</id>
+            <username>{username for 'ossrh'}</username>
+            <password>{password for 'ossrh'}</password>
+        </server>
+        <server>
+            <id>ossrh</id>
+            <username>{username for 'ossrh'}</username>
+            <password>{password for 'ossrh'}</password>
+        </server>
+    </servers>
+</settings>
