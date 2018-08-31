@@ -1,4 +1,4 @@
-package com.altoros.temporal.jackson.iso8601;
+package com.altoros.temporal.iso8601;
 
 import java.io.Serializable;
 import java.time.Clock;
@@ -22,13 +22,15 @@ import java.time.temporal.TemporalQuery;
 import java.time.temporal.ValueRange;
 import java.util.Objects;
 
+import com.altoros.temporal.MillisecTimeSource;
+import com.altoros.temporal.iso8601.gson.GsonTypeAdapterZuluDateTime;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.annotations.JsonAdapter;
 import org.litesoft.annotations.NotNull;
 import org.litesoft.annotations.Nullable;
 import org.litesoft.annotations.Significant;
 import org.litesoft.annotations.SignificantOrNull;
-import com.altoros.temporal.MillisecTimeSource;
 
 /**
  * This class provides the appropriate support for handling ISO8601 formatted DateTimes which are always based on
@@ -44,6 +46,7 @@ import com.altoros.temporal.MillisecTimeSource;
  * of this instance will return values as if it was initialized with: <code>-999080706-05-04T03:02:01.000Z</code></li>
  */
 @SuppressWarnings({"WeakerAccess", "unused"})
+@JsonAdapter(GsonTypeAdapterZuluDateTime.class)
 public final class ZuluDateTime implements Comparable<ZuluDateTime>,
                                            TemporalAccessor,
                                            Serializable {
