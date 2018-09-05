@@ -1,6 +1,6 @@
 # temporal-additions-java
 
-This repository purpose is to have a home to place (Java) solutions to recuring difficulties around Time (and Dates).
+This repository purpose is to have a home to place (Java) solutions to recurring difficulties around Time (and Dates).
 
 Most open source projects are an attempt to scratch an inch that has gone on for too long.
 In this case the inintial impetis was a few related itches.  Itches:
