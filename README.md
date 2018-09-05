@@ -3,7 +3,7 @@
 This repository purpose is to have a home to place (Java) solutions to recurring difficulties around Time (and Dates).
 
 Most open source projects are an attempt to scratch an inch that has gone on for too long.
-In this case the inintial impetis was a few related itches.  Itches:
+In this case the inintial impetus was a few related itches.  Itches:
 
 1. Make code more testable that uses the static call (a testing anti-pattern) to System.currentTimeMillis() - See MillisecTimeSource.
 2. Support the goal of easily human readable Time Stamps (without the ambiguity of missing time zones) in all intra-system communication.
