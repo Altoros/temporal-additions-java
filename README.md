@@ -32,4 +32,4 @@ This new 'ZuluDateTime' class has the following properties:
 2. uses Instant internally for its ISO8601 UTC centricity format (always ends with 'Z').
 3. limits the internal Instant to Millisec resolution (3 digits of fractional seconds)
 4. forces the internal Instant when redering ISO8601 to always produce the 3 Millisec digits.
-5. supports JSON (Jackson annotations) for JSON serialization & deserialization.
+5. supports JSON serialization & deserialization for Jackson (via annotations) & Gson (annotation and Adapter).
