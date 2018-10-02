@@ -126,20 +126,15 @@
 
     <profiles>
         <profile>
-            <id>release-profile</id>
-
-            <activation>
-                <property>
-                    <name>performRelease</name>
-                </property>
-            </activation>
+            <id>ossrh</id>
             <build>
                 <plugins>
+
                     <plugin>
-                        <inherited>true</inherited>
+                        <!--<inherited>true</inherited>-->
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-source-plugin</artifactId>
-
+                        <version>3.0.1</version>
                         <executions>
                             <execution>
                                 <id>attach-sources</id>
@@ -149,11 +144,12 @@
                             </execution>
                         </executions>
                     </plugin>
+
                     <plugin>
-                        <inherited>true</inherited>
+                        <!--<inherited>true</inherited>-->
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-javadoc-plugin</artifactId>
-
+                        <version>3.0.1</version>
                         <executions>
                             <execution>
                                 <id>attach-javadocs</id>
@@ -163,15 +159,36 @@
                             </execution>
                         </executions>
                     </plugin>
-                    <plugin>
-                        <inherited>true</inherited>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-deploy-plugin</artifactId>
 
-                        <configuration>
-                            <updateReleaseInfo>true</updateReleaseInfo>
-                        </configuration>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>1.6</version>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
                     </plugin>
+
+                    <!-- Manually publish from https://oss.sonatype.org/#stagingRepositories -->
+
+                    <!--<plugin>-->
+                    <!--<groupId>org.sonatype.plugins</groupId>-->
+                    <!--<artifactId>nexus-staging-maven-plugin</artifactId>-->
+                    <!--<version>1.6.7</version>-->
+                    <!--<extensions>true</extensions>-->
+                    <!--<configuration>-->
+                    <!--<serverId>ossrh</serverId>-->
+                    <!--<nexusUrl>https://oss.sonatype.org/</nexusUrl>-->
+                    <!--<autoReleaseAfterClose>true</autoReleaseAfterClose>-->
+                    <!--</configuration>-->
+                    <!--</plugin>-->
+
                 </plugins>
             </build>
 
